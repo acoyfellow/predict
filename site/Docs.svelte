@@ -1,14 +1,19 @@
+<script lang="ts">
+  import Nav from './Nav.svelte';
+</script>
+
 <svelte:head><title>Predict docs — browser integration</title><meta name="description" content="Install Predict, send your own action and metadata, and use the returned next-step signal." /><link rel="canonical" href="https://predict.coey.dev/docs" /><meta name="theme-color" content="#635bff" /><meta property="og:title" content="Predict docs" /><meta property="og:description" content="Install Predict and use a small signal for the next step on your website." /><meta property="og:url" content="https://predict.coey.dev/docs" /><link rel="manifest" href="/manifest.webmanifest" /><link rel="icon" href="/icon.jpg" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..700&family=Google+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" /></svelte:head>
 <main class="mx-auto max-w-[1180px] px-[38px] py-[25px] pb-20 max-[800px]:px-5">
-  <header><a class="logo" href="/">predict<span>✦</span></a><nav><a href="/docs">Docs</a><a href="https://github.com/acoyfellow/predict" target="_blank" rel="noreferrer">Source</a></nav></header>
+  <Nav />
   <article class="max-w-[820px] pt-20 @container">
     <p class="eyebrow">Predict docs</p>
     <h1>Ask what a visitor will do next.</h1>
     <p class="lead">Predict reads a few page signals and returns a small, typed prediction. Your site decides what to show.</p>
     <p class="cta"><a href="https://github.com/acoyfellow/predict" target="_blank" rel="noreferrer">Install your own Worker on GitHub →</a></p>
     <h2>Install</h2>
-    <p>Add the browser script to your site.</p>
-    <pre><code>&lt;script src="https://predict.coey.dev/snippet.js"&gt;&lt;/script&gt;</code></pre>
+    <div class="install-choice"><div><strong>Try the hosted demo</strong><p>Use the hosted snippet for a quick test. It is rate-limited and intended for evaluation.</p><pre><code>&lt;script src="https://predict.coey.dev/snippet.js"&gt;&lt;/script&gt;</code></pre></div><div><strong>Bring Predict to your Cloudflare account</strong><p>For production, install your own Worker. Your account owns the endpoint, AI Gateway, billing, limits, and data path.</p><pre><code>npm install github:acoyfellow/predict
+npx wrangler deploy</code></pre></div></div>
+    <p>The hosted snippet is for trying Predict. Use the GitHub package and deploy flow when you are ready to run Predict on your own Cloudflare infrastructure.</p>
     <h2>Make a prediction</h2>
     <pre><code><span class="kw">const</span> prediction = <span class="kw">await</span> <span class="fn">Predict</span>(&#123;
   <span class="key">endpoint</span>: <span class="str">"/predict"</span>,

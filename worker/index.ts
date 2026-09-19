@@ -5,12 +5,6 @@ import { bundles } from './bundles.generated';
 import Home from '../site/Home.svelte';
 import Docs from '../site/Docs.svelte';
 import { HEADS } from '../shared/heads';
-import { PAINT_SHOP_BASE64 } from './paint-shop';
-import { PAINT_SUNSET_BASE64 } from './paint-sunset';
-import { PAINT_ELECTRIC_BASE64 } from './paint-electric';
-import { PAINT_AFTERGLOW_BASE64 } from './paint-afterglow';
-import { PAINT_EXIT_BASE64 } from './paint-exit';
-import { PREDICT_ICON_BASE64 } from './predict-icon';
 import { Effect } from 'effect';
 import type { PredictRequest, PredictState, Prediction, TriggerReason } from '../shared/schema';
 import { isMetadata } from '../shared/validation';
@@ -76,14 +70,7 @@ app.post('/predict', async (c) => {
   }
 });
 app.get('/snippet.js', () => new Response(SNIPPET, { headers: { 'content-type': 'application/javascript', 'cache-control': 'public, max-age=3600' } }));
-const imageResponse = (base64: string) => new Response(Uint8Array.from(atob(base64), (character) => character.charCodeAt(0)), { headers: { 'content-type': 'image/jpeg', 'cache-control': 'public, max-age=31536000, immutable' } });
-app.get('/paint-shop.jpg', () => imageResponse(PAINT_SHOP_BASE64));
-app.get('/paint-sunset.jpg', () => imageResponse(PAINT_SUNSET_BASE64));
-app.get('/paint-electric.jpg', () => imageResponse(PAINT_ELECTRIC_BASE64));
-app.get('/paint-afterglow.jpg', () => imageResponse(PAINT_AFTERGLOW_BASE64));
-app.get('/paint-exit.jpg', () => imageResponse(PAINT_EXIT_BASE64));
-app.get('/icon.jpg', () => imageResponse(PREDICT_ICON_BASE64));
 app.get('/manifest.webmanifest', (c) => c.json({ name: 'Predict', short_name: 'Predict', start_url: '/', display: 'standalone', background_color: '#f7f9fc', theme_color: '#635bff', description: 'See what a visitor is likely to do next.', icons: [{ src: '/icon.jpg', sizes: '512x512', type: 'image/jpeg', purpose: 'any maskable' }] }));
-app.get('/sw.js', (c) => new Response(`const CACHE='predict-v1';self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(['/','/docs','/manifest.webmanifest','/icon.jpg']))));self.addEventListener('fetch',event=>event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request))) );`, { headers: { 'content-type': 'application/javascript', 'cache-control': 'no-cache' } }));
+app.get('/sw.js', (c) => new Response(`self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.map(key=>caches.delete(key)))).then(()=>self.clients.claim())));self.addEventListener('fetch',event=>{if(event.request.method==='GET')event.respondWith(fetch(event.request))});`, { headers: { 'content-type': 'application/javascript', 'cache-control': 'no-store' } }));
 export default app;
 const SNIPPET = `(()=>{const c=window.PredictConfig||{};if(navigator.doNotTrack==='1'||document.documentElement.hasAttribute('data-off'))return;const predict=async(input={})=>{const s={page:{path:location.pathname,title:document.title,type:location.pathname.includes('pricing')?'pricing':location.pathname.includes('checkout')?'checkout':'essay'},session:{t_ms:performance.now(),pages:1,referrer_kind:'unknown'},engagement:{scroll_max:Math.min(1,scrollY/(document.body.scrollHeight-innerHeight||1)),scroll_now:scrollY/(document.body.scrollHeight-innerHeight||1),clicks:0,keys:0,cta_hover_ms:0,cta_clicked:false},motion:{idle_ms:0,heading_to_exit:false,tab_hidden:document.hidden,visibility:document.visibilityState,rage_clicks:0},form:null};const r=await fetch(input.endpoint||c.endpoint||'/predict',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({session:input.session||c.session||crypto.randomUUID(),reason:input.action||'manual',metadata:input.metadata,state:s})});if(!r.ok)throw new Error('prediction request failed');const p=await r.json();(c.onPredict||(()=>{}))(p);return p};predict.tick=(action='manual')=>predict({action});window.Predict=predict})()`;
