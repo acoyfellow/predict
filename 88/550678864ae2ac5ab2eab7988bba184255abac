@@ -1,0 +1,49 @@
+.guardrail/deploys/2026-09-19T13-44-35-792Z.json
+  s_706951c87ffc86::t_9f17174d7d4ca7 1-47
+.guardrail/deploys/2026-09-19T13-51-27-618Z.json
+  s_706951c87ffc86::t_2acfb66056c64b 1-47
+.guardrail/deploys/2026-09-19T13-51-43-521Z.json
+  s_706951c87ffc86::t_60e5474854c71b 1-45
+.guardrail/deploys/2026-09-19T14-05-24-151Z.json
+  s_706951c87ffc86::t_ca43ea9fd3fbef 1-45
+bun.lock
+  s_706951c87ffc86::t_d6f1bb54e00a01 1-310
+svelte.d.ts
+  s_dd9db32fc7489c::t_a0e5ede18cabaa 1-4
+worker/paint-afterglow.ts
+  s_706951c87ffc86::t_af4b3cb1743b40 1
+worker/paint-electric.ts
+  s_706951c87ffc86::t_c9e4038b7e00db 1
+worker/paint-exit.ts
+  s_706951c87ffc86::t_3f7c09bce9b54f 1
+worker/paint-shop.ts
+  s_706951c87ffc86::t_f972a9665ab3c3 1
+worker/paint-sunset.ts
+  s_706951c87ffc86::t_def0087b62b22f 1
+worker/predict-icon.ts
+  s_706951c87ffc86::t_99c81de5cb9b98 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "88550678864ae2ac5ab2eab7988bba184255abac",
+  "prompts": {},
+  "sessions": {
+    "s_706951c87ffc86": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a0b907-dcf1-7437-b485-5c1b93fdb152",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Jordan Coeyman <jcoeyman@cloudflare.com>"
+    },
+    "s_dd9db32fc7489c": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a042f9-198d-7e2d-b4c8-1bbd3e7d6084",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Jordan Coeyman <jcoeyman@cloudflare.com>"
+    }
+  }
+}
