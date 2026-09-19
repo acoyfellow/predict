@@ -6,5 +6,6 @@ worker/bundles.generated.ts
 .tmp-audit-build
 .pi
 .guardrail
+.svelte-kit
 .env*
 .dev.vars
