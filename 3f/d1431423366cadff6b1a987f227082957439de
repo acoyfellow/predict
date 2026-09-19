@@ -1,0 +1,21 @@
+site/Home.svelte
+  s_706951c87ffc86::t_487ff442dfdea1 50-52,65,69-71
+src/app.css
+  s_706951c87ffc86::t_3fd598a4952683 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3fd1431423366cadff6b1a987f227082957439de",
+  "prompts": {},
+  "sessions": {
+    "s_706951c87ffc86": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a0b907-dcf1-7437-b485-5c1b93fdb152",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Jordan Coeyman <jcoeyman@cloudflare.com>"
+    }
+  }
+}
