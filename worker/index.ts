@@ -1,3 +1,4 @@
+import '../src/app.css';
 import { Hono } from 'hono';
 import { attachSvelteRoutes, svelteRenderer } from 'svelte-hono';
 import { bundles } from './bundles.generated';
