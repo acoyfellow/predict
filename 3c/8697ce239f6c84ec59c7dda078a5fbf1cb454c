@@ -1,0 +1,23 @@
+bun.lock
+  s_706951c87ffc86::t_ec509b74085eee 15-17,21-22,24,162-165,172-203,208-209,212-249,252-253,268-269,272-274,282-283,294-295,298-299,304-305,308-331,338-345,350-361,364-365,368-371,376-377,380-387,398-401,416-431,434-457
+package.json
+  s_706951c87ffc86::t_973401a02223a4 6-16,20,22,36-38,42-43,45,48
+src/app.css
+  s_706951c87ffc86::t_fe6fa8ab82869a 1-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3c8697ce239f6c84ec59c7dda078a5fbf1cb454c",
+  "prompts": {},
+  "sessions": {
+    "s_706951c87ffc86": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a0b907-dcf1-7437-b485-5c1b93fdb152",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Jordan Coeyman <jcoeyman@cloudflare.com>"
+    }
+  }
+}
