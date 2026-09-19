@@ -1,0 +1,10 @@
+node_modules
+.wrangler
+dist
+build
+worker/bundles.generated.ts
+.tmp-audit-build
+.pi
+.guardrail
+.env*
+.dev.vars

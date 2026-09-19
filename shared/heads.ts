@@ -1,0 +1,10 @@
+export const HEADS = {
+  will_bounce: { type: 'noul', instructions: 'This visitor will leave this page now without another meaningful action.', criteria: { true: 'Behavior indicates an imminent leave.', false: 'The visitor is still reading, interacting, or plausibly continuing.' } },
+  bounce_mode: { type: 'choice', instructions: "What is the visitor's posture on this page right now?", criteria: { engaged: 'Reading or acting with forward progress', stalled: 'Present but not progressing', exiting: 'In the act of leaving' } },
+  job: { type: 'choice', instructions: 'What is this visitor trying to do on this page right now?', criteria: { learn: 'Understand what the product is', compare: 'Weigh plans or alternatives', buy: 'Ready to start or purchase', use: 'Looking for how-to or concrete detail', wander: 'No clear task' } },
+  confused: { type: 'noul', instructions: 'The visitor appears stuck or confused rather than finished or uninterested.', criteria: { true: 'The visitor needs clarification.', false: 'The visitor is clear or still progressing.' } },
+  rage: { type: 'noul', instructions: 'Repeated rapid clicks or hesitation indicate frustration.', criteria: { true: 'Repeated interaction indicates frustration.', false: 'No repeated interaction indicates frustration.' } },
+  abandon_form: { type: 'noul', instructions: 'A started form is about to be abandoned without submit.', criteria: { true: 'A started form is likely to be abandoned.', false: 'There is no started form likely to be abandoned.' } },
+  may_interrupt: { type: 'noul', instructions: 'An on-page interruption would help rather than annoy given current engagement.', criteria: { true: 'A small helpful interruption would improve the next step.', false: 'An interruption would distract or annoy.' } },
+  action: { type: 'choice', instructions: 'What is the best next on-page move if we act at all?', criteria: { none: 'Do nothing', clarify: 'Explain the confusing bit', social: 'Show proof or examples', compare: 'Show plan comparison', cta: 'Emphasize the primary action', human: 'Offer chat or a person' } }
+} as const;
