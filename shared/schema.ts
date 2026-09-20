@@ -24,4 +24,4 @@ export type Prediction = {
   };
 };
 
-export type PredictRequest = { session: string; reason: TriggerReason; state: PredictState; metadata?: Record<string, unknown> };
+export type PredictRequest = { session?: string; reason: TriggerReason; state: PredictState; metadata?: Record<string, unknown>; outcomes?: string[] };
