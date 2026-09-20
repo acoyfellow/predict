@@ -1,0 +1,19 @@
+worker/tailwind.generated.ts
+  s_706951c87ffc86::t_6e8bd3c0210211 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "594f47dc538b7a091289d4d2314fc16353b794f2",
+  "prompts": {},
+  "sessions": {
+    "s_706951c87ffc86": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a0b907-dcf1-7437-b485-5c1b93fdb152",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Jordan Coeyman <jcoeyman@cloudflare.com>"
+    }
+  }
+}
