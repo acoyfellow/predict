@@ -82,6 +82,10 @@ analytics.track("prediction_received", {
 
 For production, deploy the Worker in your Cloudflare account:
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/acoyfellow/predict)
+
+The button opens the official Cloudflare Workers deployment flow.
+
 ```sh
 npm install github:acoyfellow/predict
 npx wrangler deploy
